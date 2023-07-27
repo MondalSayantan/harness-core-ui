@@ -78,6 +78,11 @@ function ContainerStepInputSetBasic(props: ContainerStepProps): React.ReactEleme
           isExecutionTimeFieldDisabled: isExecutionTimeFieldDisabled(stepViewType)
         }}
         className={cx(stepCss.formGroup, stepCss.md)}
+        onChange={val => {
+          if (!val) {
+            formik.setFieldValue(name, '')
+          }
+        }}
       />
     ),
     [expressions, getString]
@@ -239,6 +244,11 @@ function ContainerStepInputSetBasic(props: ContainerStepProps): React.ReactEleme
           multiTypeInputProps={{
             selectProps: {
               items: getShellOptions(getString)
+            },
+            onChange: val => {
+              if (!val) {
+                formik.setFieldValue(`${prefix}spec.shell`, 'Sh')
+              }
             },
             expressions,
             allowableTypes

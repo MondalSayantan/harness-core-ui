@@ -65,13 +65,10 @@ export default function SRMStepAnalysis({ data }: { data: ChangeEventDTO }): JSX
 
   const { color, backgroundColor } = statusToColorMapping(metadata.analysisStatus, data.type) || {}
 
-  const derivedEndTime = useMemo(
-    () => calculateEndtime(data.metadata.analysisEndTime, data.metadata.analysisDuration),
-    [data.metadata.analysisEndTime, data.metadata.analysisDuration]
-  )
+  const derivedEndTime = useMemo(() => calculateEndtime(data.metadata.analysisEndTime), [data.metadata.analysisEndTime])
 
   useEffect(() => {
-    if (data.type === ChangeSourceTypes.SrmStepAnalysis) {
+    if (data.type === ChangeSourceTypes.DeploymentImpactAnalysis) {
       setTimestamps([data.metadata.analysisStartTime - TWO_HOURS_IN_MILLISECONDS, derivedEndTime])
     }
   }, [data.type, derivedEndTime])

@@ -7,15 +7,7 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
-  readonly cdExecutionContainer: string
-  readonly lhs: string
-  readonly main: string
-  readonly metaContainer: string
-  readonly overflowScroll: string
-  readonly parentPipelineDetails: string
-  readonly popover: string
-  readonly singleExecutionTag: string
-  readonly trigger: string
-  readonly userLabelContainer: string
+  readonly cannotArchiveMessage: string
+  readonly dialog: string
 }
 export default styles
